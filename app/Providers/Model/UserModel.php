@@ -41,6 +41,15 @@ class UserModel extends ServiceProvider
         return $result;
     }
 
+    public function searchEmail($obj)
+    {
+        $result = DB::table('users')
+                        ->select('id','email')
+                        ->where('email', $obj['email'])
+                        ->first();
+        return $result;
+    }
+
     public function saveuser($obj)
     {
         $result = DB::table('users')->insert([

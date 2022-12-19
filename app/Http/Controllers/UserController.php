@@ -26,8 +26,17 @@ class UserController extends Controller
         $obj['email']      = $request->email;
         $obj['password']   = Hash::make($request->password);
         $obj['created_at'] = date('Y-m-d H:i:s');
-        UserModel::saveuser($obj);
-        return redirect('users')->with('success', 'Data User Berhasil');
+        $email =  UserModel::searchEmail($obj);
+        if ($email != true) {
+            UserModel::saveuser($obj);
+            $type    = 'success';
+            $message = 'Data User Berhasil';
+        }else{
+            $type    = 'failed';
+            $message = 'Email Sudah Terdaftar';
+        }
+        
+        return redirect('users')->with($type, $message);
     }
 
     public function storeuser(Request $request)
