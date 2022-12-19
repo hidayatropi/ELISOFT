@@ -54,8 +54,9 @@ class UserController extends Controller
 
     public function pseudocode()
     {
-        $print = false;
-        return view('pseudocode', compact('print'));
+        $in_words = false;
+        $number = null;
+        return view('pseudocode', compact('in_words','number'));
     }
 
     public function searchangka(Request $request)
@@ -69,8 +70,8 @@ class UserController extends Controller
         $fmt = numfmt_create($locale, NumberFormatter::SPELLOUT);
         $in_words = numfmt_format($fmt, $number);
 
-        $print = print_r($in_words);
-        dd($print);
-        return view('pseudocode', compact('print'));
+        #$print = echo($in_words);
+        #dd('tes');
+        return view('pseudocode', compact('in_words','number'));
     }
 }

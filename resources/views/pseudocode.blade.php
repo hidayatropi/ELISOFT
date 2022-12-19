@@ -12,7 +12,7 @@
 				<form action="{{route('searchangka')}}" method="POST">
 					{{@csrf_field()}}
 					<div class="input-group input-group-sm">
-						<input type="text" name="text" autocomplete="off" id="text" class="form-control" id="email" placeholder="Masukan Angka" value="{{ old('text') }}" autofocus onkeypress="return hanyaAngka(event)">
+						<input type="text" name="text" autocomplete="off" id="text" class="form-control" id="email" placeholder="Masukan Angka" autofocus onkeypress="return hanyaAngka(event)" value="{{$number}}">
 						<span class="input-group-append">
 							<button type="submit" class="btn btn-info btn-flat">Go!</button>
 						</span>
@@ -20,7 +20,7 @@
 					<br>
 					<div class="form-group input-group-sm">
 						{{-- <label>Terbilang {{$print}}</label> --}}
-						<input type="text" disabled class="form-control" placeholder="Terbilang : {{$print}}">
+						<input type="text" disabled class="form-control" style="color:bold;" placeholder="Terbilang : {{Str::upper($in_words)}}">
 					</div>
 				</form>
 			</div>

@@ -42,7 +42,7 @@
             <a href="{{route('pseudocode')}}" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
-                Pseudocode
+                Pseudocode Angka
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
